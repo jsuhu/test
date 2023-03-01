@@ -1,5 +1,5 @@
 # user_io.py
-import inventory
+import inventory2
 
 # A function that gets the user's input of money and validates it
 def get_money():
@@ -25,19 +25,23 @@ def get_money():
         return get_money()
 #get_money()
 
+  
+
 # A function that gets the user's choice of item and validates it
 def get_item(inventory):
     choice = input("\nPlease enter the number of the item you wish to purchase: ")
-    keys = list(inventory.keys())
+    keys = []
+    for item in inventory:
+        keys.append(item["name"])
     try:
         choice = int(choice)
         # Check if the choice is valid (i.e., in the inventory dictionary)
-        if choice in range(1, len(inventory.keys()) + 1):
+        if choice in range(1, len(inventory) + 1):
             # Get a list of keys from the inventory dictionary
             # Get the key corresponding to the choice by indexing the list
             key = keys[choice - 1]
             # Return the key
-            return key
+            return key, choice
         else:
             # Display an error message if the choice is invalid
             print("\nInvalid input. Item not available.")
