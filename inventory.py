@@ -13,7 +13,7 @@ def print_inventory(inventory):
     # Initialize a counter for the item number
     counter = 1
     # Loop through the keys of the dictionary
-    for item in inventory:
+    for item in inventory.keys():
         # Get the value of the current key as a list
         price_quantity = inventory[item]
         # Print the item number, name, price and quantity
